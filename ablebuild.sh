@@ -35,7 +35,7 @@ mkdir -p $ORG_ISO_PATH/settings/cockpit
 mkdir -p $ORG_ISO_PATH/settings/images
 
 yes|cp $PWD_PATH/kickstart/ks/ablestack-ks.cfg $ORG_ISO_PATH/ks/
-yes|cp $PWD_PATH/kickstart/EFI/BOOT/grub.cfg $ORG_ISO_PATH/EFI/BOOT/grub.cfg
+yes|cp $PWD_PATH/kickstart/EFI/BOOT/* $ORG_ISO_PATH/EFI/BOOT/
 yes|cp $PWD_PATH/kickstart/isolinux/isolinux.cfg $ORG_ISO_PATH/isolinux/isolinux.cfg
 yes|cp $PWD_PATH/kickstart/rpms/* $ORG_ISO_PATH/rpms/
 yes|cp $PWD_PATH/kickstart/whls/* $ORG_ISO_PATH/whls/
