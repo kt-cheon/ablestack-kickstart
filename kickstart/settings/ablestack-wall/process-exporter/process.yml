@@ -1,4 +1,0 @@
-process_names:
-  - name: "{{.Comm}};{{.ExeBase}};{{.ExeFull}};{{.Username}};{{.Matches}}"
-    cmdline:
-    - 'sshd|cloudstack-management|mysqld|node_exporter|process-exporter|blackbox_exporter'
