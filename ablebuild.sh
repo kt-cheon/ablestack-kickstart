@@ -33,13 +33,10 @@ echo $reset;
 mkdir -p $ISO_DIR_PATH/ks
 mkdir -p $ISO_DIR_PATH/rpms
 mkdir -p $ISO_DIR_PATH/whls
-mkdir -p $ISO_DIR_PATH/exporter
 mkdir -p $ISO_DIR_PATH/scripts
 mkdir -p $ISO_DIR_PATH/settings/branding-images
 mkdir -p $ISO_DIR_PATH/settings/images
-mkdir -p $ISO_DIR_PATH/settings/exporter
-mkdir -p $ISO_DIR_PATH/settings/skydive
-#mkdir -p $ISO_DIR_PATH/settings/cockpit
+mkdir -p $ISO_DIR_PATH/settings/pam
 
 yes|cp $PWD_PATH/kickstart/ks/ablestack-ks.cfg $ISO_DIR_PATH/ks/
 yes|cp $PWD_PATH/kickstart/EFI/BOOT/grub.cfg $ISO_DIR_PATH/EFI/BOOT/grub.cfg
@@ -48,13 +45,8 @@ yes|cp $PWD_PATH/kickstart/isolinux/isolinux.cfg $ISO_DIR_PATH/isolinux/isolinux
 yes|cp $PWD_PATH/kickstart/rpms/* $ISO_DIR_PATH/rpms/
 yes|cp $PWD_PATH/kickstart/whls/* $ISO_DIR_PATH/whls/
 yes|cp $PWD_PATH/kickstart/scripts/* $ISO_DIR_PATH/scripts/
-yes|cp -r $PWD_PATH/kickstart/settings/exporter/* $ISO_DIR_PATH/settings/exporter/
-yes|cp $PWD_PATH/kickstart/settings/skydive/* $ISO_DIR_PATH/settings/skydive/
 yes|cp $PWD_PATH/kickstart/settings/branding-images/* $ISO_DIR_PATH/settings/branding-images/
 yes|cp $PWD_PATH/kickstart/settings/images/* $ISO_DIR_PATH/settings/images/
-#yes|cp -r $PWD_PATH/kickstart/settings/cockpit/* $ISO_DIR_PATH/settings/cockpit/
-
-
-#mkisofs -o ./ISO/ablestack-$1-el8.iso -b isolinux/isolinux.bin -J -R -l -c isolinux/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table -eltorito-alt-boot -e images/efiboot.img -no-emul-boot -graft-points -r -V "ABLESTACK" $ISO_DIR_PATH
+yes|cp $PWD_PATH/kickstart/settings/pam/* $ISO_DIR_PATH/settings/pam/
 
 genisoimage -U -r -v -T -J -joliet-long -V "ABLESTACK" -volset "ABLESTACK" -A "ABLESTACK" -b isolinux/isolinux.bin -c isolinux/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table -eltorito-alt-boot -e images/efiboot.img -no-emul-boot -o ./ISO/ablestack-$1-el8.iso $ISO_DIR_PATH
